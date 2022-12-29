@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+class Worker{
+	private int id;
+	private String name;
+	private String dept;
+	private String addr;
+	private String birth;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	
+}
+public class n2 {
+
+	public static void main(String[] args) {
+		Worker w=new Worker(); 
+		
+		while(true) {
+			System.out.println("<사원 정보 관리 프로그램>");
+			System.out.println("1. 사원정보 입력");
+			System.out.println("2. 사원정보 개별 조회");
+			System.out.println("3. 프로그램 종료");
+			
+			Scanner s= new Scanner(System.in);
+			String a =s.next();
+			
+			switch(a) {
+			case "1":
+				try {
+					System.out.println("사번: ");
+					w.setId(s.nextInt());
+					System.out.println("이름: ");
+					w.setName(s.next());
+					System.out.println("부서: ");
+					w.setDept(s.next());
+					System.out.println("주소: ");
+					w.setAddr(s.next());
+					System.out.println("생일: ");
+					w.setBirth(s.next());
+				}catch(Exception e) {
+					s.next();
+					System.out.println("잘못된 값이다");
+					continue;
+				}
+					System.out.println("사원정보가 입력되었다. ");
+					break;
+			
+			case "2":
+				System.out.println("검색하고자 하는 사원의 사번은? ");
+				int b;
+				try {
+					b=s.nextInt();
+				}
+				catch(Exception e) {
+					s.next();
+					System.out.println("잘못된 값이다");
+					continue;
+				}
+				if(b==w.getId()) {
+					System.out.println("이름: "+w.getName());
+					System.out.println("부서: "+w.getDept());
+					System.out.println("주소: "+w.getAddr());
+					System.out.println("생일: "+w.getBirth());
+				}
+				else {
+					System.out.println("없는 사번이다");
+					continue;
+				}
+				break;
+				
+			case "3":
+				System.out.println("프로그램 종료");
+				System.exit(0);
+			}
+		}
+		
+	}
+
+}
